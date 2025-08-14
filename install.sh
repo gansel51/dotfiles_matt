@@ -33,7 +33,7 @@ function installDotfiles() {
   # Create necessary directories
   echo "Creating script directories..."
   mkdir -p ~/.local/bin
-  mkdir -p ~/GitHub/matthewmyrick/dotfiles/scripts
+  mkdir -p ~/GitHub/griffinansel/dotfiles/scripts
 
   # Handle scripts directory with new structure
   echo "  scripts"
@@ -50,12 +50,12 @@ function installDotfiles() {
 
   # Copy the entire scripts directory structure for shell modules
   # This preserves the modular organization
-  echo "    - Shell modules to ~/GitHub/matthewmyrick/dotfiles/scripts"
+  echo "    - Shell modules to ~/GitHub/griffinansel/dotfiles/scripts"
   if [ -d "scripts" ]; then
     # Ensure the destination exists
-    mkdir -p ~/GitHub/matthewmyrick/dotfiles
+    mkdir -p ~/GitHub/griffinansel/dotfiles
     # Copy the entire scripts directory structure
-    cp -R scripts ~/GitHub/matthewmyrick/dotfiles/
+    cp -R scripts ~/GitHub/griffinansel/dotfiles/
     echo "      ✓ Copied modular shell functions"
     echo "      ✓ Copied shell module loader"
     echo "      ✓ Preserved directory structure for lazy loading"
@@ -74,7 +74,7 @@ function installDotfiles() {
   echo "dotfiles have been updated successfully!"
   echo ""
   echo "ℹ️  Shell Module System:"
-  echo "  - Modular functions installed to ~/GitHub/matthewmyrick/dotfiles/scripts/shell/"
+  echo "  - Modular functions installed to ~/GitHub/griffinansel/dotfiles/scripts/shell/"
   echo "  - Functions use lazy loading for optimal performance"
   echo "  - Run 'shell_modules' to see available modules"
   echo "  - Run 'shell_loaded' to see what's currently loaded"
@@ -186,9 +186,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   fi
 
   echo "Installing additional tools..."
-  cargo install --git https://github.com/MatthewMyrick/quill
-  go install github.com/MatthewMyrick/bluetooth-tui@latest
-  go install github.com/matthewmyrick/azure-searcher@latest
+  # cargo install --git https://github.com/griffinansel/quill
+  # go install github.com/griffinansel/bluetooth-tui@latest
+  # go install github.com/griffinansel/azure-searcher@latest
   echo "Additional tools installed."
 
   echo "Setting up Python virtual environment for Neovim..."
