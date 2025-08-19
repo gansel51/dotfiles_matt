@@ -19,7 +19,7 @@ Run the installation script to set up all dotfiles and dependencies:
 
 This will:
 1. Copy dotfiles to home directory (`.zshrc`, `.aliases`, etc.)
-2. Install the modular shell system to `~/GitHub/matthewmyrick/dotfiles/scripts/shell/`
+2. Install the modular shell system to `~/GitHub/gansel51/dotfiles_matt/scripts/shell/`
 3. Set up config directories for nvim, yazi, kitty
 4. Install required Homebrew packages
 5. Configure Python virtual environment for Neovim
@@ -78,7 +78,7 @@ With lazy loading enabled:
 ## Notes
 
 - `.gitconfig` must be updated manually to prevent overwriting any current git configuration
-- Shell functions are located in `~/GitHub/matthewmyrick/dotfiles/scripts/shell/`
+- Shell functions are located in `~/GitHub/gansel51/dotfiles_matt/scripts/shell/`
 - Python telemetry is opt-in via `python_telemetry` alias
 - Curl JSON detection available via `curlj` alias
 

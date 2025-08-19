@@ -66,7 +66,7 @@ _add_to_path_if_exists "$HOME/.rd/bin"
 # --- MODULAR SHELL FUNCTIONS ---
 # Load the shell module system with lazy loading
 # Functions are only loaded when first called, optimizing startup time
-source "$HOME/GitHub/matthewmyrick/dotfiles/scripts/shell/loader.sh"
+source "$HOME/GitHub/gansel51/dotfiles_matt/scripts/shell/loader.sh"
 
 # --- OPTIMIZATION TIPS ---
 # 
@@ -107,5 +107,5 @@ source "$HOME/GitHub/matthewmyrick/dotfiles/scripts/shell/loader.sh"
 # --- SAFETY: Ensure shell modules are loaded ---
 # This ensures functions are available even if there was an error above
 if ! type shell_loaded &>/dev/null; then
-    source "$HOME/GitHub/matthewmyrick/dotfiles/scripts/shell/loader.sh"
+    source "$HOME/GitHub/gansel51/dotfiles_matt_matt/scripts/shell/loader.sh"
 fi

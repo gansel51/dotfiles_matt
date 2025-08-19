@@ -1,37 +1,32 @@
 #!/usr/bin/env zsh
-# Prompt Configuration
-# Custom prompt setup - always loaded for shell appearance
+# Simple-style prompt (path in blue, git branch only in red, white input text, no % before 🌳)
 
-# Note: No lazy load guard here as prompt needs to be always available
+: ${SIMPLE_SHOW_GIT:=true}
 
-# Source git functions for prompt (lightweight, needed for prompt)
-source "$HOME/GitHub/matthewmyrick/dotfiles/scripts/shell/git/functions.sh"
+autoload -Uz colors
+colors
+setopt prompt_subst
 
-# --- Prompt Configuration ---
-prompt_header() {
-    local header='%B';
+# Optional git helpers you already have
+if [[ -f "$HOME/GitHub/gansel51/dotfiles_matt/scripts/shell/git/functions.sh" ]]; then
+  source "$HOME/GitHub/gansel51/dotfiles_matt/scripts/shell/git/functions.sh"
+fi
 
-    header+='%F{166}%n%f'; # username
-    header+=' at ';
-    header+='%F{136}%m%f'; # host
-    header+=' in ';
-    header+='%F{64}%~%f'; # working directory
-    if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-        # add git info if the current directory is in a repo
-        header+=' on ';
-        header+='%F{61}$(git_branch)%f'; # git branch
-        header+='%F{33}$(git_status)%f'; # git status
-    fi
-    header+='%b';
-
-    echo -e "${header}";
+# Get branch name only (no status symbols)
+_git_branch_only() {
+  git rev-parse --abbrev-ref HEAD 2>/dev/null
 }
 
-# prompt
 precmd() {
-    echo # add newline before prompt header
-    print -rP "$(prompt_header)"
+  local gitseg=""
+  if $SIMPLE_SHOW_GIT && git rev-parse --is-inside-work-tree &>/dev/null; then
+    local b; b="$(_git_branch_only)"
+    [[ -n "$b" ]] && gitseg=" %F{red}(${b})%f"
+  fi
+
+  # Path in blue, branch in red, tree at end, white input
+  PROMPT="💻 %B%F{blue}%~%f%b${gitseg} 💻 %F{white}"
 }
 
-PROMPT="%B%F{15}$%f%b ";
-PS2="%B%F{136}→%f%b ";
+# Secondary prompt (multiline continuation) also white
+PS2="%F{white}>%f "

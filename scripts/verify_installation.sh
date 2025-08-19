@@ -67,7 +67,7 @@ check_file "$HOME/.aliases" ".aliases installed"
 
 echo ""
 echo "Checking shell modules directory structure..."
-BASE_DIR="$HOME/GitHub/matthewmyrick/dotfiles/scripts"
+BASE_DIR="$HOME/GitHub/gansel51/dotfiles_matt/scripts"
 check_dir "$BASE_DIR/shell" "Shell modules base directory"
 check_dir "$BASE_DIR/shell/profiling" "Profiling module directory"
 check_dir "$BASE_DIR/shell/git" "Git module directory"
